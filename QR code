@@ -1,0 +1,12 @@
+__import__('os').system('pip install -q qrcode')
+__import__('os').system('pip install -q Pillow')
+
+import qrcode as qr
+
+code = qr.QRCode (version=1, box_size=10,border=5)
+value  = "Small steps in the right direction can turn out 
+to be the biggest step of your life"
+code.add_data(value)
+code.make(fit=True)
+img = code.make_image(fill="black",back_color="white")
+img.save("qr.png")
